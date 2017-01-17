@@ -72,6 +72,7 @@ public class createcubetest : MonoBehaviour {
 		}
 
 			positionpluswidth = halfvancubus / 2;
+			Debug.Log ("Dit is als if statement is gegaan " + positionpluswidth); 
 			hoogteerbij = halfvancubus / 2;
 			//lengteerbij = 0 - newhalfnewvancubus / 2 - lengteerbijvanfunctie;
 		}
@@ -131,6 +132,7 @@ public class createcubetest : MonoBehaviour {
 
 
 	public void loaddata(){
+		numbercubespecificrow++;
 		numberloadspecificcube++;
 		if (positionpluswidth >= 80 && runonetime <= 1) {
 			positionpluswidth = 0;
@@ -172,7 +174,7 @@ public class createcubetest : MonoBehaviour {
 
 
 
-		numbercubespecificrow++;
+
 		//waar nummer vancubus staat hieronder was vroeger nummertje
 		lengteobject = PlayerPrefs.GetString("lengte_" + numberloadspecificcube );
 		breedteobject = PlayerPrefs.GetString ("Breedte_" + numberloadspecificcube );
