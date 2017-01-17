@@ -76,15 +76,9 @@ public class createcubetest : MonoBehaviour {
 				halfvancubus = newhalfvancubus;
 			}
 
-<<<<<<< HEAD
 				positionpluswidth = halfvancubus / 2;
 				Debug.Log ("Dit is als if statement is gegaan " + positionpluswidth); 
 				hoogteerbij = halfvancubus / 2;
-=======
-			positionpluswidth = halfvancubus / 2;
-			Debug.Log ("Dit is als if statement is gegaan " + positionpluswidth); 
-			hoogteerbij = halfvancubus / 2;
->>>>>>> origin/master
 			//lengteerbij = 0 - newhalfnewvancubus / 2 - lengteerbijvanfunctie;
 		}
 
