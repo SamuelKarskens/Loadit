@@ -3,6 +3,8 @@ using System.Collections;
 
 public class createcubetest : MonoBehaviour {
 
+	private int cubusnummermineen;
+
 	// Use this for initialization
 	public string myvariable;
 	public float length;
@@ -16,9 +18,8 @@ public class createcubetest : MonoBehaviour {
 	public float hoogte;
 	public int nummervoor = 0;
 	public int numberloadspecificcube = 0;
-	public int cubusnummermineen;
 	public string sizeobject;
-	public float positionpluswidth;
+	public static float positionpluswidth;
 	public float newbreederbij;
 	public float afstandbreed = 0;
 	public float newsizeobject;
@@ -37,42 +38,47 @@ public class createcubetest : MonoBehaviour {
 	public float newhalfvancubus;
 	public float halfvancubus;
 	public int testvariable = 0;
-	public float hoogteerbij = 0;
-	public float lengteerbij = 0;
+	public static float hoogteerbij = 0;
+	public static float lengteerbij = 0;
 	public int numbercubespecificrow = 0;
 	public float lengteerbijvanfunctie = 0;
 	public int runonetime = 0;
 	public int numberoffirstinrow = 1;
+	bool creating = false;
+	bool created = false;
+	public GameObject cube;
 	void Start () {
 		
 
 	}
 
 	public void afstandhouden (){
-
+		Debug.Log("afstandhouden aangeroepen!!!!!");
 		getalletje = 2;
 		nummervoor = PlayerPrefs.GetInt ("nummer");
 		//nummervancubus was vroeger nummertje
-		int cubusnummermineen = numbercubespecificrow - 1;
+		//cubusnummermineen = 0;
+		cubusnummermineen = numbercubespecificrow - 1;
 		Debug.Log ("dit is het nummertje" + numberloadspecificcube); 
 		Debug.Log ("dit is het trans" + cubusnummermineen); 
 
 		//stap 1 neemnt de breedte van de eerste cubus
 		Debug.Log("Dit is nummer van eerste cube" + numberoffirstinrow);
 
-
+		
 
 
 		// als er maar 1 cubus is dan is de afstand om bij de afstand op te tellen 0
-		if (cubusnummermineen == 0) {
+		if (cubusnummermineen <= 0) {
 
-		storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
-		if (float.TryParse (storebreedtecubus1, out newhalfvancubus)) {
-			halfvancubus = newhalfvancubus;
-		}
+			storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberloadspecificcube);
+			if (float.TryParse (storebreedtecubus1, out newhalfvancubus)) {
+				halfvancubus = newhalfvancubus;
+			}
 
-			positionpluswidth = halfvancubus / 2;
-			hoogteerbij = halfvancubus / 2;
+				positionpluswidth = halfvancubus / 2;
+				Debug.Log ("Dit is als if statement is gegaan " + positionpluswidth); 
+				hoogteerbij = halfvancubus / 2;
 			//lengteerbij = 0 - newhalfnewvancubus / 2 - lengteerbijvanfunctie;
 		}
 
@@ -125,18 +131,20 @@ public class createcubetest : MonoBehaviour {
 			//lengteerbij = 0 - newensizeennew - lengteerbijvanfunctie;
 		}
 
-
+		createcubussen();
 	}
 
 
 
 	public void loaddata(){
+		numbercubespecificrow++;
 		numberloadspecificcube++;
 		if (positionpluswidth >= 80 && runonetime <= 1) {
 			positionpluswidth = 0;
 			numbercubespecificrow = 1;
 			Debug.Log("Hoi" + positionpluswidth);
 			lengteerbij = 0 - halfwidthlastcube - 20 -30;
+			
 
 
 			/*storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
@@ -155,9 +163,11 @@ public class createcubetest : MonoBehaviour {
 
 
 
-			numberoffirstinrow = numberloadspecificcube; 
-			Debug.Log ("uiteindelijk nummer" + numberoffirstinrow);  
-			runonetime++;
+			//numberoffirstinrow = numberloadspecificcube; 
+			//Debug.Log ("uiteindelijk nummer" + numberoffirstinrow);  
+			//runonetime++;
+			
+			
 		}
 
 
@@ -172,7 +182,7 @@ public class createcubetest : MonoBehaviour {
 
 
 
-		numbercubespecificrow++;
+
 		//waar nummer vancubus staat hieronder was vroeger nummertje
 		lengteobject = PlayerPrefs.GetString("lengte_" + numberloadspecificcube );
 		breedteobject = PlayerPrefs.GetString ("Breedte_" + numberloadspecificcube );
@@ -197,7 +207,7 @@ public class createcubetest : MonoBehaviour {
 			length = newLength;
 
 		}
-
+		afstandhouden();
 	}
 
 	public void createcubussen(){
@@ -214,19 +224,10 @@ public class createcubetest : MonoBehaviour {
 		Debug.Log("dit is lengteerbij" + lengteerbij);
 		Debug.Log("dit is nummervancubus" + numbercubespecificrow); 
 		Debug.Log("dit is breederbij" + positionpluswidth); 
-		GameObject cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-		cube.transform.position = new Vector3 (positionpluswidth, hoogteerbij, lengteerbij);
+		//cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
+		creating = true;
+		//cube.transform.position = new Vector3 (positionpluswidth, hoogteerbij, lengteerbij);
 		cube.transform.localScale = new Vector3 (breedte, length, hoogte);
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -270,10 +271,19 @@ public class createcubetest : MonoBehaviour {
 				cube.transform.localScale = new Vector3 (breedte, length, hoogte);
 			}
 */
+	
+	}
+		void Update () {
+			//cube.transform.position = Vector3.Lerp(new Vector3(positionpluswidth, hoogteerbij,50), new Vector3(positionpluswidth, hoogteerbij, lengteerbij), 0.1f);
+			if(creating){
+				
+				GameObject cubeClone = Instantiate(cube, new Vector3(positionpluswidth, hoogteerbij,50), Quaternion.Euler(new Vector3(0,0,0)));
+				cubeClone.transform.localScale = new Vector3 (breedte, length, hoogte);
 
+				creating = false;
+			}
 
-
-		
+			
 	}
 	public void testert(){
 
@@ -281,7 +291,5 @@ public class createcubetest : MonoBehaviour {
 
 	}
 	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
