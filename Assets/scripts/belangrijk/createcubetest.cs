@@ -47,6 +47,7 @@ public class createcubetest : MonoBehaviour {
 	bool creating = false;
 	bool created = false;
 	public GameObject cube;
+    public float varvoorif;
 	void Start () {
 		
 
@@ -70,7 +71,7 @@ public class createcubetest : MonoBehaviour {
 
 		// als er maar 1 cubus is dan is de afstand om bij de afstand op te tellen 0
 		if (cubusnummermineen <= 0) {
-
+            Debug.Log("Dit is het nummer spcifirow" + numbercubespecificrow);
 			storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberloadspecificcube);
 			if (float.TryParse (storebreedtecubus1, out newhalfvancubus)) {
 				halfvancubus = newhalfvancubus;
@@ -86,18 +87,34 @@ public class createcubetest : MonoBehaviour {
 		// en voeg je die toe aan de totale breedte
 		else {
 			
-			Debug.Log (cubusnummermineen);  
+			Debug.Log (cubusnummermineen);
+
+            int numberpour = numberloadspecificcube - 1;
+            //cubusnummermineen; 
+            
+            
+            
+            
+            
+            
+            
+            
+              
 		
 			while (getalletje >= 2 && getalletje <= cubusnummermineen) {
 				Debug.Log ("Start van while loop"); 
-				volggetalletje = PlayerPrefs.GetString ("Breedte_" + getalletje);
+				volggetalletje = PlayerPrefs.GetString ("Breedte_" + numberpour);
 				if (float.TryParse (volggetalletje, out newvolggetalletje)) {
 					volgendegetalletje = newvolggetalletje;
 				}
 				widthcubesinside = widthcubesinside + volgendegetalletje;
-				getalletje++; 
-
-				}
+				getalletje++;
+                if (numberpour >= varvoorif)
+                {
+                    numberpour--;
+                    Debug.Log("dit is numberpour in de while lloop" + numberpour);
+                }
+                }
 			 
 
 			Debug.Log("Dit is het getalletje van de while loop aan het einden" + getalletje);  
@@ -105,7 +122,7 @@ public class createcubetest : MonoBehaviour {
 	
 
 			//stap 1 neemnt de breedte van de eerste cubus
-			storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
+			storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + varvoorif);
 			if (float.TryParse (storebreedtecubus1, out newhalfvancubus)) {
 				halfvancubus = newhalfvancubus;
 			}
@@ -125,7 +142,7 @@ public class createcubetest : MonoBehaviour {
 			positionpluswidth = newhalfvancubus + newhalfvancubus + halfwidthlastcube + widthcubesinside;
 			//reset de widthcubesinside zodat de breedte van de vorige er niet bij komt
 			widthcubesinside = 0;
-
+            Debug.Log("Dit is positionpluswidth"+positionpluswidth);
 			hoogteerbij = halfwidthlastcube;
 			//deze lengte moet er nog bij later
 			//lengteerbij = 0 - newensizeennew - lengteerbijvanfunctie;
@@ -144,6 +161,8 @@ public class createcubetest : MonoBehaviour {
 			numbercubespecificrow = 1;
 			Debug.Log("Hoi" + positionpluswidth);
 			lengteerbij = 0 - halfwidthlastcube - 20 -30;
+            varvoorif = numberloadspecificcube;
+
 			
 
 
