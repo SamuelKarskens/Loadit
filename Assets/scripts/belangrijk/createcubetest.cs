@@ -62,6 +62,9 @@ public class createcubetest : MonoBehaviour {
     public int supercoolevariable;
     public int hellovariablecubuspecific = 2;
     public bool forifstatement = false;
+    public string storebreedtenvandecubuseenen;
+    public float breedtevaneerstecubussen;
+    public float newbreedtevaneerstecubussen;
 
     void Start () {
 		
@@ -230,14 +233,14 @@ public class createcubetest : MonoBehaviour {
             
 
 
-			/*storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
-			if (float.TryParse (storebreedtecubus1, out newhalfvancubus)) {
-				halfvancubus = newhalfvancubus;
-			}
+			//storebreedtenvandecubuseenen = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
+			//if (float.TryParse (storebreedtenvandecubuseenen, out breedtevaneerstecubussen)) {
+            //    newbreedtevaneerstecubussen = breedtevaneerstecubussen;
+			//}
 
-			positionpluswidth = halfvancubus / 2;
-			hoogteerbij = halfvancubus / 2;
-*/
+			//positionpluswidth = halfvancubus / 2;
+			//hoogteerbij = halfvancubus / 2;
+
 
 
 
@@ -254,6 +257,29 @@ public class createcubetest : MonoBehaviour {
 		}
 
         breedtevanallecubusinrij = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
