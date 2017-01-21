@@ -48,7 +48,22 @@ public class createcubetest : MonoBehaviour {
 	bool created = false;
 	public GameObject cube;
     public float varvoorif;
-	void Start () {
+    public float varvoorwhilelloopload;
+    public int getalletjevoorwhileloop;
+    public string opgevraagtbreedte;
+    public float newopgevraagtbreedte;
+    public float volgendesupergetalletje;
+    public float breedtevanallecubusinrij;
+    public int numbertje = 0;
+    public int nummerallecubusvanrij;
+    public int variablesuper;
+    public int numbertjecool;
+    public int variablevoorkeerhogerbijif = 1;
+    public int supercoolevariable;
+    public int hellovariablecubuspecific = 2;
+    public bool forifstatement = false;
+
+    void Start () {
 		
 
 	}
@@ -156,14 +171,63 @@ public class createcubetest : MonoBehaviour {
 	public void loaddata(){
 		numbercubespecificrow++;
 		numberloadspecificcube++;
-		if (positionpluswidth >= 80 && runonetime <= 1) {
-			positionpluswidth = 0;
-			numbercubespecificrow = 1;
+
+
+        
+        nummerallecubusvanrij = numberloadspecificcube - numbertje;
+        variablesuper = numberloadspecificcube;
+        Debug.Log("hello dit is numberspecificrow!!!!" + numbercubespecificrow);
+
+        if (forifstatement == true)
+        {
+            supercoolevariable = numbertje;
+                //+ numbercubespecificrow - 1;
+            Debug.Log("Dit is numbertje" + numbertje);
+        }
+        else
+        {
+            supercoolevariable = 0;
+        }
+       
+
+        Debug.Log("Dit is de supercoolevariable !!!" + supercoolevariable);
+        Debug.Log("dit is voor while loop variablesuper!!!!!!!!!!" + variablesuper);
+
+        while (variablesuper > supercoolevariable)
+        {
+            Debug.Log("dit is variablesuper!!!!!" + variablesuper);
+            //Debug.Log("Start van while loop");
+            opgevraagtbreedte = PlayerPrefs.GetString("Breedte_" + variablesuper);
+            if (float.TryParse(opgevraagtbreedte, out newopgevraagtbreedte))
+            {
+                volgendesupergetalletje = newopgevraagtbreedte;
+            }
+            breedtevanallecubusinrij = breedtevanallecubusinrij + volgendesupergetalletje;
+            variablesuper--;
+           
+        }
+
+        Debug.Log("Dit is breedte while!!!!!!!!" + breedtevanallecubusinrij);
+
+
+
+
+
+
+
+        if (breedtevanallecubusinrij >= 49.4 && runonetime <= 1) {
+            positionpluswidth = 0;
+            numbertje = numbertje + numbercubespecificrow - 1;
+            numbertjecool = 0 - numbercubespecificrow;
+            hellovariablecubuspecific  = hellovariablecubuspecific + numbercubespecificrow;
+            Debug.Log("hello dit is hellovariable" + hellovariablecubuspecific);
+            numbercubespecificrow = 1;
 			Debug.Log("Hoi" + positionpluswidth);
 			lengteerbij = 0 - halfwidthlastcube - 20 -30;
             varvoorif = numberloadspecificcube;
+            forifstatement = true;
 
-			
+            
 
 
 			/*storebreedtecubus1 = PlayerPrefs.GetString ("Breedte_" + numberoffirstinrow);
@@ -189,6 +253,7 @@ public class createcubetest : MonoBehaviour {
 			
 		}
 
+        breedtevanallecubusinrij = 0;
 
 
 
@@ -201,9 +266,8 @@ public class createcubetest : MonoBehaviour {
 
 
 
-
-		//waar nummer vancubus staat hieronder was vroeger nummertje
-		lengteobject = PlayerPrefs.GetString("lengte_" + numberloadspecificcube );
+        //waar nummer vancubus staat hieronder was vroeger nummertje
+        lengteobject = PlayerPrefs.GetString("lengte_" + numberloadspecificcube );
 		breedteobject = PlayerPrefs.GetString ("Breedte_" + numberloadspecificcube );
 		hoogteobject = PlayerPrefs.GetString ("Hoogte_" + numberloadspecificcube );
 		if (float.TryParse(breedteobject, out newBreedte))
