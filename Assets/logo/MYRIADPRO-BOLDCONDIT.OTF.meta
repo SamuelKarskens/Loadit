@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: f28999b693c15104d8b9f8d2ce26bbfb
+timeCreated: 1485185499
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Myriad Pro
+  fontNames:
+  - Myriad Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e0a170c01d1dabc44935100d247e6016, type: 3}
+  - {fileID: 12800000, guid: 6c6c1182effd3eb43a463334583ca824, type: 3}
+  - {fileID: 12800000, guid: fce0f72384c5b4c41b5efc0025104f76, type: 3}
+  - {fileID: 12800000, guid: ccefdb649e164cf4eaf8fafbe5127d99, type: 3}
+  - {fileID: 12800000, guid: 3d7e34559816e584eb084873aa535b53, type: 3}
+  - {fileID: 12800000, guid: d7f18665f15015943af42f1ba3855d34, type: 3}
+  - {fileID: 12800000, guid: e0e60207af03e5442b7f9600f158ab42, type: 3}
+  - {fileID: 12800000, guid: 610dd998deb93d54da51c17ea70a536b, type: 3}
+  - {fileID: 12800000, guid: efbc6ed97a3889541b5cb444f0a568ac, type: 3}
+  - {fileID: 12800000, guid: b91f8d1da4cd77d47a171e972e7d30d0, type: 3}
+  - {fileID: 12800000, guid: 4809c34dee535fc4abfa855ce98a4931, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

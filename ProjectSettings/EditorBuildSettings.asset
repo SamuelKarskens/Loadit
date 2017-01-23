@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/scenes/test.unity
   - enabled: 1
     path: Assets/scenes/cube.unity
+  - enabled: 1
+    path: Assets/scenes/help.unity
