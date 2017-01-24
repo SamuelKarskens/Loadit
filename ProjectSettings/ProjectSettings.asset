@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Loadit
-  productName: Ar
+  productName: Loadit
   defaultCursor: {fileID: 2800000, guid: 67f46422fdb20bc44a8af5202e0c7426, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.17254902, g: 0.64705884, b: 0.7137255, a: 1}
